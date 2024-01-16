@@ -4,7 +4,9 @@ public class Explorador {
 
     public Explorador(String nombre){
         this.nombre = nombre;
-        this.posicionActual = new Posicion();
+        int numFilaAleatorio = (int) (Math.random()*10+1);
+        this.posicionActual = new Posicion(numFilaAleatorio,0);
+
     }
     public String getNombre(){
         return nombre;
