@@ -65,13 +65,13 @@ public class Explorador {
         int columna = posicionActual.getCoordenadaCol();
 
         if (mapa.getTablero()[fila][columna] == 1){
-            System.out.println(nombre + "se encuentra en una trampa, se muere y Se acabó el juego.");
+            System.out.println(nombre + " " + "ha caido en una trampa");
             return 1;
         } else if (mapa.getTablero()[fila][columna] == 2) {
-            System.out.println(nombre + "Ha encontrado el tesoro, has ganado. Fin del juego.");
+            System.out.println(nombre + " " + "Ha encontrado el tesoro, ENHORABUENA. Fin del juego.");
             return 2;
         } else {
-            System.out.println(nombre + "No hay trampa ni tesoro. Sigue el juego.");
+            System.out.println("No pasa nada. Sigue jugando...");
             return 0;
         }
     }
@@ -82,7 +82,23 @@ public class Explorador {
      * @return
      */
     public int explorar(Mapa mapa){
+        int fila = posicionActual.getCoordenadaFila();
+        int columna = posicionActual.getCoordenadaCol();
+        int trampasAlrededor = 0;
 
-        return 0;
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                int filaA = fila + i;
+                int columnaA = columna + j;
+
+                if (filaA >= 0 && filaA < 10 && columnaA >= 0 && columnaA < 10){
+                    if (mapa.getTablero()[filaA][columnaA] == 1){
+                        trampasAlrededor++;
+                    }
+                }
+            }
+        }
+
+        return trampasAlrededor;
     }
 }

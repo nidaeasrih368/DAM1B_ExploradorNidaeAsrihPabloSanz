@@ -58,33 +58,4 @@ public class Mapa  {
     public Posicion getPosTesoro() {
         return posTesoro;
     }
-
-    //clase interna para representar la posicion
-    public class Posicion {
-        private int fila;
-        private int columna;
-
-        public Posicion(int fila, int columna) {
-            this.fila = fila;
-            this.columna = columna;
-        }
-
-        public int getFila() {
-            return fila;
-        }
-
-        public int getColumna() {
-            return columna;
-        }
-    }
-
-    //ejemplo de uso
-    public static void main(String[] args) {
-        Mapa mapa = new Mapa();
-        int[][] tablero = mapa.getTablero();
-        Posicion posTesoro = mapa.getPosTesoro();
-
-        //aqui puedes realizar acciones con el tablero y la posicion del tesoro
-        System.out.println("Posición del tesoro: Fila " + posTesoro.getFila() + ", Columna " + posTesoro.getColumna());
-    }
 }
