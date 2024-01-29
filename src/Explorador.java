@@ -53,12 +53,35 @@ public class Explorador {
                 System.out.println("La Direccion no es valida!");
         }
     }
-    public int explorar(Mapa mapa){
 
-        return 0;
+    /**
+     * Revisamos la posicionActual del Explorador : si esta en una trampa =1
+     * si esta en un tesoro = 2, y en otro caso = 0.
+     * @param mapa
+     * @return 0, 1, 2
+     */
+    public int checkPosicion(Mapa mapa){
+        int fila = posicionActual.getCoordenadaFila();
+        int columna = posicionActual.getCoordenadaCol();
+
+        if (mapa.getTablero()[fila][columna] == 1){
+            System.out.println(nombre + "se encuentra en una trampa, se muere y Se acabó el juego.");
+            return 1;
+        } else if (mapa.getTablero()[fila][columna] == 2) {
+            System.out.println(nombre + "Ha encontrado el tesoro, has ganado. Fin del juego.");
+            return 2;
+        } else {
+            System.out.println(nombre + "No hay trampa ni tesoro. Sigue el juego.");
+            return 0;
+        }
     }
 
-    public int checkPosicion(Mapa mapa){
+    /**
+     * Revisamos las casillas, devuelve el numero de casillas con trampas
+     * @param mapa
+     * @return
+     */
+    public int explorar(Mapa mapa){
 
         return 0;
     }
