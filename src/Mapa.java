@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Mapa {
+public class Mapa  {
     private int[][] tablero;
     private Posicion posTesoro;
 
